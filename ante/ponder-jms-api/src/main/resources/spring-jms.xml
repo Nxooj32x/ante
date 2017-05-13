@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Spring提供的JMS工具类，它可以进行消息发送、接收等 -->
+    <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <!-- 这个connectionFactory对应的是我们定义的Spring提供的那个ConnectionFactory对象 -->
+        <property name="connectionFactory" ref="connectionFactory"/>
+
+        <!-- 消息转换器 -->
+        <property name="messageConverter" ref="simpleMessageConverter"/>
+    </bean>
+
+    <!-- 类型转换器 -->
+    <bean id="simpleMessageConverter" class="org.springframework.jms.support.converter.SimpleMessageConverter"/>
+
+    <!-- 真正可以产生Connection的ConnectionFactory，由对应的 JMS服务厂商提供-->
+    <bean id="targetConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="tcp://localhost:61616"/>
+        <!--activeMQ针对对象的传输有白名单限制（即使你的类实现了序列化借口也会报错），需要将你类所在的包加入白名单。在接受的时候将activeMQConnection.setTrustAllPackages(true);设置为true，（默认的是fales） -->
+        <property name="trustAllPackages"  value="true"/>
+    </bean>
+
+    <!-- Spring用于管理真正的ConnectionFactory的ConnectionFactory -->
+    <bean id="connectionFactory" class="org.springframework.jms.connection.SingleConnectionFactory">
+        <!-- 目标ConnectionFactory对应真实的可以产生JMS Connection的ConnectionFactory -->
+        <property name="targetConnectionFactory" ref="targetConnectionFactory"/>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.jms.connection.JmsTransactionManager">
+        <property name="connectionFactory" ref="connectionFactory" />
+    </bean>
+
+    <!-- 消息监听适配器 -->
+    <bean id="messageListenerAdapter" class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+        <property name="delegate" ref="consumerListener" />
+        <property name="defaultListenerMethod" value="receiveMessage"/>
+        <property name="messageConverter" ref="simpleMessageConverter"/>
+        <property name="defaultResponseDestination" ref="defaultResponseQueue"/>
+    </bean>
+
+    <bean  id ="consumerListener" class="org.ante.jms.listener.ConsumerListener"/>
+    <!-- 消息监听适配器对应的监听容器 -->
+    <bean id="messageListenerAdapterContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+        <property name="connectionFactory" ref="connectionFactory"/>
+        <property name="destination" ref="adapterQueue"/>
+        <property name="messageListener" ref="messageListenerAdapter"/><!-- 使用MessageListenerAdapter来作为消息监听器 -->
+    </bean>
+
+    <!-- 用于测试消息监听适配器的队列目的地 -->
+    <bean id="adapterQueue" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg>
+            <value>adapterQueue</value>
+        </constructor-arg>
+    </bean>
+
+    <!-- 默认的消息回复队列 -->
+    <bean id="defaultResponseQueue" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg>
+            <value>defaultResponseQueue</value>
+        </constructor-arg>
+    </bean>
+
+    <!-- 用于测试消息回复的 -->
+    <bean id="responseQueue" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg>
+            <value>responseQueue</value>
+        </constructor-arg>
+    </bean>
+
+    <!-- responseQueue对应的监听器 -->
+    <bean id="responseQueueListener" class="org.ante.jms.listener.ResponseQueueListener"/>
+
+    <!-- responseQueue对应的监听容器 -->
+    <bean id="responseQueueMessageListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+        <property name="connectionFactory" ref="connectionFactory"/>
+        <property name="destination" ref="responseQueue"/>
+        <property name="messageListener" ref="responseQueueListener"/>
+        <property name="transactionManager" ref="transactionManager"/>
+    </bean>
+
+
+    <!--邮件发送实现类 -->
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.smtp.auth">true</prop>
+            </props>
+        </property>
+        <property name="host" value="smtp.163.com" />
+        <property name="username" value="15306174272@163.com" />
+        <property name="password" value="123qwe" />
+    </bean>
+
+    <!-- 邮件发送模板 -->
+    <bean id="mailMessage" class="org.springframework.mail.SimpleMailMessage">
+        <property name="from" value="15306174272@163.com" />
+        <property name="subject" value="帐户密码忘记邮件" />
+    </bean>
+
+    <bean id="emailUtil" class="org.ante.jms.utils.EmailUtil"/>
+
+</beans>

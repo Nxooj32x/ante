@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="ante-common-webapp:war exploded">
+    <output-path>$PROJECT_DIR$/ante-common-webapp/target/ante-common-webapp</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="ante-common-webapp" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/ante-common-webapp/target/ante-common-webapp/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="ante-common-webapp/web/Web" />
+    </root>
+  </artifact>
+</component>

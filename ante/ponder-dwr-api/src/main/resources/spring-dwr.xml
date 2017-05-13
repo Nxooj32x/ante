@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.directwebremoting.org/schema/spring-dwr http://www.directwebremoting.org/schema/spring-dwr/spring-dwr-3.0.xsd">
+
+    <!-- DWR配置 -->
+
+    <dwr:annotation-config/>
+
+    <dwr:annotation-scan scanRemoteProxy="true"
+                         scanDataTransferObject="true" base-package="org.ante.dwr.model"/>
+
+    <bean
+            class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+        <property name="order" value="1"/>
+    </bean>
+    <bean
+            class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
+        <property name="order" value="2"/>
+    </bean>
+    <bean
+            class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>
+    <bean
+            class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="order" value="3"/>
+        <property value="true" name="alwaysUseFullPath"></property>
+        <property name="mappings">
+            <props>
+                <prop key="/dwr/**">dwrController</prop>
+            </props>
+        </property>
+    </bean>
+
+    <dwr:configuration>
+    </dwr:configuration>
+
+    <dwr:controller id="dwrController" debug="true">
+        <dwr:config-param name="crossDomainSessionSecurity"
+                          value="false"/>
+        <dwr:config-param name="allowScriptTagRemoting"
+                          value="true"/>
+        <dwr:config-param name="classes" value="java.lang.Object"/>
+        <dwr:config-param name="activeReverseAjaxEnabled"
+                          value="true"/>
+        <dwr:config-param name="initApplicationScopeCreatorsAtStartup"
+                          value="true"/>
+        <dwr:config-param name="maxWaitAfterWrite" value="3000"/>
+        <dwr:config-param name="logLevel" value="WARN"/>
+    </dwr:controller>
+</beans>

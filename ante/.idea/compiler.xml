@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <resourceExtensions />
+    <wildcardResourcePatterns>
+      <entry name="!?*.java" />
+      <entry name="!?*.form" />
+      <entry name="!?*.class" />
+      <entry name="!?*.groovy" />
+      <entry name="!?*.scala" />
+      <entry name="!?*.flex" />
+      <entry name="!?*.kt" />
+      <entry name="!?*.clj" />
+      <entry name="!?*.aj" />
+    </wildcardResourcePatterns>
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="false">
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="ante-base" />
+        <module name="ante-common-webapp" />
+        <module name="ponder-quartz-api" />
+        <module name="ponder-user-api" />
+      </profile>
+      <profile default="false" name="Annotation profile for ante-app-web" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="ante-app-web" />
+      </profile>
+      <profile default="false" name="Annotation profile for ponder-dwr-api" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="ponder-dwr-api" />
+      </profile>
+      <profile default="false" name="Annotation profile for ponder-redis-api" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="ponder-redis-api" />
+      </profile>
+      <profile default="false" name="Annotation profile for ponder-jms-api" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="ponder-jms-api" />
+      </profile>
+      <profile default="false" name="Annotation profile for ponderbase" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="ponderbase" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ante" target="1.5" />
+      <module name="ante-app-web" target="1.7" />
+      <module name="ante-base" target="1.5" />
+      <module name="ante-common-appweb" target="1.5" />
+      <module name="ante-common-webapp" target="1.5" />
+      <module name="antebase" target="1.5" />
+      <module name="ponder-dwr-api" target="1.6" />
+      <module name="ponder-jms-api" target="1.6" />
+      <module name="ponder-quartz-api" target="1.5" />
+      <module name="ponder-redis-api" target="1.6" />
+      <module name="ponder-user-api" target="1.5" />
+      <module name="ponderbase" target="1.6" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

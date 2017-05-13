@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ante.iml" filepath="$PROJECT_DIR$/ante.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ante-app-web/ante-app-web.iml" filepath="$PROJECT_DIR$/ante-app-web/ante-app-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ante-base/ante-base.iml" filepath="$PROJECT_DIR$/ante-base/ante-base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ante-common-webapp/ante-common-webapp.iml" filepath="$PROJECT_DIR$/ante-common-webapp/ante-common-webapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ponder-dwr-api/ponder-dwr-api.iml" filepath="$PROJECT_DIR$/ponder-dwr-api/ponder-dwr-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ponder-jms-api/ponder-jms-api.iml" filepath="$PROJECT_DIR$/ponder-jms-api/ponder-jms-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ponder-quartz-api/ponder-quartz-api.iml" filepath="$PROJECT_DIR$/ponder-quartz-api/ponder-quartz-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ponder-redis-api/ponder-redis-api.iml" filepath="$PROJECT_DIR$/ponder-redis-api/ponder-redis-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ponder-user-api/ponder-user-api.iml" filepath="$PROJECT_DIR$/ponder-user-api/ponder-user-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ponderbase/ponderbase.iml" filepath="$PROJECT_DIR$/ponderbase/ponderbase.iml" />
+    </modules>
+  </component>
+</project>
