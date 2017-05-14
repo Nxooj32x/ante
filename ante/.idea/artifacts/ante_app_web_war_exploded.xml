@@ -14,6 +14,11 @@
           <element id="library" level="project" name="Maven: org.apache.oltu.oauth2:org.apache.oltu.oauth2.common:1.0.2" />
           <element id="library" level="project" name="Maven: org.json:json:20140107" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.7" />
+          <element id="library" level="project" name="Maven: com.atomikos:transactions-jdbc:3.9.3" />
+          <element id="library" level="project" name="Maven: com.atomikos:transactions-jta:3.9.3" />
+          <element id="library" level="project" name="Maven: com.atomikos:transactions:3.9.3" />
+          <element id="library" level="project" name="Maven: com.atomikos:transactions-api:3.9.3" />
+          <element id="library" level="project" name="Maven: com.atomikos:atomikos-util:3.9.3" />
           <element id="library" level="project" name="Maven: de.ruedigermoeller:fst:1.58" />
           <element id="library" level="project" name="Maven: org.freemarker:freemarker:2.3.23" />
           <element id="library" level="project" name="Maven: org.quartz-scheduler:quartz:2.2.1" />

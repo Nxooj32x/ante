@@ -39,6 +39,11 @@
             <version>1.0.2</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.atomikos</groupId>
+            <artifactId>transactions-jdbc</artifactId>
+            <version>3.9.3</version>
+        </dependency>
 
         <dependency>
             <groupId>de.ruedigermoeller</groupId>

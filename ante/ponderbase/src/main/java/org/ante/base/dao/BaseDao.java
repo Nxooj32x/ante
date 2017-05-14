@@ -8,8 +8,7 @@ package org.ante.base.dao;
 import org.hibernate.Query;
 import org.hibernate.ScrollableResults;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate3.HibernateTemplate;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
@@ -25,9 +24,6 @@ import java.util.List;
  */
 public class BaseDao<T> {
 
-	@Autowired
-	protected SessionFactory sessionFactory;
-
 	// 泛型反射类
 	private Class<T> entityClass;
 
@@ -39,8 +35,12 @@ public class BaseDao<T> {
 		entityClass = (Class) params[0];
 	}
 
+	public HibernateTemplate getHibernateTemplate(){
+		return null;
+	}
+
 	public Session getCurrentSession() {
-		return sessionFactory.getCurrentSession();
+		return getHibernateTemplate().getSessionFactory().getCurrentSession();
 	}
 
 	/*
@@ -380,26 +380,5 @@ public class BaseDao<T> {
 		}
 		return q.list();
 	}
-	
-	/*public void saveLosts(List<T> list) {
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
-        int i = 0;
-        for (T t : list) {
-            if (session.contains(t)) {
-                continue;
-            } else {
-                session.save(t);
-                i++;
-            }
-            if (i % 20 == 0) {
-                session.getTransaction().commit();
-                session.flush();
-                session.clear();
-                session.beginTransaction();
-            }
-        }
-        session.getTransaction().commit();
-        session.close();
-    }*/
+
 }

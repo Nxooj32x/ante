@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- spring atomikos配置 -->
+        <bean id="userDataSource" class="com.atomikos.jdbc.AtomikosDataSourceBean"
+          init-method="init" destroy-method="close">
+        <!-- Set unique name for this DataSource -->
+        <property name="uniqueResourceName"><value>user</value></property>
+        <!-- Set XADatasource class name-->
+        <property name="xaDataSourceClassName" value="com.mysql.jdbc.jdbc2.optional.MysqlXADataSource" />
+        <property name="xaProperties">
+            <props>
+                <prop key="user">root</prop>
+                <prop key="password">123456</prop>
+                <prop key="url">jdbc:mysql://localhost:3306/user</prop>
+            </props>
+        </property>
+        <!-- set properties for datasource connection pool -->
+        <property name="minPoolSize" value="20" />
+        <property name="maxPoolSize" value="512" />
+        <property name="borrowConnectionTimeout" value="30" />
+        <property name="maintenanceInterval" value="60" />
+        <property name="maxIdleTime" value="60" />
+        <!-- 管理 Connection 被占用的时间 -->
+        <!-- 如果不设置这个值，Atomikos使用默认的300秒(即5分钟)，那么在处理大批量数据读取的时候，一旦超过5分钟，就会抛出类似 Resultset
+            is close 的错误 -->
+        <property name="reapTimeout" value="20000"/>
+        <property name="testQuery" value="select 1"/>
+    </bean>
+
+    <bean id="userSessionFactory"
+          class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="userDataSource"/>
+        <property name="packagesToScan">
+            <list>
+                <value>org.ante.user.model</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+                <!-- 设置自动创建Hibernate.hbm文件 -->
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+                <prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+                <prop key="hibernate.jdbc.batch_size">${hibernate.jdbc.batch_size}</prop>
+                <prop key="hibernate.hibernate.connection.SetBigStringTryClob">
+                    ${hibernate.hibernate.connection.SetBigStringTryClob}
+                </prop>
+                <prop key="hibernate.hibernate.archive.autodetection">${hibernate.hibernate.archive.autodetection}
+                </prop>
+                <prop key="hibernate.hibernate.connection.charSet">${hibernate.hibernate.connection.charSet}</prop>
+                <prop key="hibernate.hibernate.cache.use_query_cache">${hibernate.hibernate.cache.use_query_cache}
+                </prop>
+                <prop key="hibernate.hibernate.cache.use_second_level_cache">
+                    ${hibernate.hibernate.cache.use_second_level_cache}
+                </prop>
+                <prop key="hibernate.hibernate.ejb.naming_strategy">${hibernate.hibernate.ejb.naming_strategy}</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="secruityTemplate" name="userTemplate"
+          class="org.springframework.orm.hibernate3.HibernateTemplate">
+        <property name="sessionFactory" ref="userSessionFactory"/>
+    </bean>
+</beans>
