@@ -27,12 +27,12 @@
         <module name="ponder-quartz-api" />
         <module name="ponder-user-api" />
       </profile>
-      <profile default="false" name="Annotation profile for ante-app-web" enabled="true">
+      <profile default="false" name="Annotation profile for ponderbase" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="ante-app-web" />
+        <module name="ponderbase" />
       </profile>
       <profile default="false" name="Annotation profile for ponder-dwr-api" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -55,21 +55,19 @@
         <processorPath useClasspath="true" />
         <module name="ponder-jms-api" />
       </profile>
-      <profile default="false" name="Annotation profile for ponderbase" enabled="true">
+      <profile default="false" name="Annotation profile for ante-app-web" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="ponderbase" />
+        <module name="ante-app-web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="ante" target="1.5" />
       <module name="ante-app-web" target="1.7" />
       <module name="ante-base" target="1.5" />
-      <module name="ante-common-appweb" target="1.5" />
       <module name="ante-common-webapp" target="1.5" />
-      <module name="antebase" target="1.5" />
       <module name="ponder-dwr-api" target="1.6" />
       <module name="ponder-jms-api" target="1.6" />
       <module name="ponder-quartz-api" target="1.5" />

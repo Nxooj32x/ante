@@ -44,15 +44,14 @@ public class HomeController extends BaseController {
         return "/view/index";
     }
 
-    @RequestMapping(value = "/template",method = RequestMethod.GET)
+    @RequestMapping(value = "/manager",method = RequestMethod.GET)
     public String profile(HttpServletRequest request, HttpServletResponse response){
-        return "/view/main/template";
+        return "/view/main/manager";
     }
 
-    @RequestMapping(value = "/container/{m}",method = RequestMethod.GET)
-    public String container(HttpServletRequest request, HttpServletResponse response,@PathVariable String m){
-        request.setAttribute("module",m);
-        return "/view/main/sub/container";
+    @RequestMapping(value = "/container/{type}",method = RequestMethod.GET)
+    public String container(HttpServletRequest request, HttpServletResponse response,@PathVariable String type){
+        return "/view/main/sub/"+type;
     }
 
 
@@ -100,5 +99,7 @@ public class HomeController extends BaseController {
     public Object delete(HttpServletRequest request, HttpServletResponse response, @PathVariable String id,@RequestBody Role role){
         return new MessageBean(true,role);
     }
+
+
 
 }

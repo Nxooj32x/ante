@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="ante-common-appweb:war">
-    <output-path>$PROJECT_DIR$/ante-common-appweb/target</output-path>
-    <root id="archive" name="ante-common-webapp.war">
-      <element id="artifact" artifact-name="ante-common-appweb:war exploded" />
-    </root>
-  </artifact>
-</component>

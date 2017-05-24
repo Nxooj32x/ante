@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Manager</title>
+    <#include "view/main/includes/top.html"/>
+</head>
+<body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
+<#include "view/main/includes/header.html"/>
+<div class="app-body">
+    <#include "view/main/includes/left-sidebar.html"/>
+    <!-- Main content -->
+    <main class="main" id="js-repo-pjax-container">
+        <#if view??>
+            <#include "${view}.html"/>
+        <#else>
+                <#include "view/main/sub/default.html"/>
+        </#if>
+    </main>
+    <#include "view/main/includes/right-aside-menu.html"/>
+</div>
+<#include "view/main/includes/footer.html"/>
+<script src="${resRoot}/js/app.js"></script>
+</body>
+</html>

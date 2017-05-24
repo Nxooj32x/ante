@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- 读取mysql jdbc的配置-->
+    <context:property-placeholder location="classpath:jdbc.properties" ignore-unresolvable="true"/>
+    <import resource="classpath*:user-datasource.xml"/>
+    <import resource="classpath*:ante-datasource.xml"/>
+
+    <bean id="casFilter" class="org.apache.shiro.cas.CasFilter">
+        <!--配置验证错误时的失败页面（Ticket 校验不通过时展示的错误页面） -->
+        <property name="failureUrl" value="/course/error"/>
+    </bean>
+
+    <bean id="casSubjectFactory" class="org.apache.shiro.cas.CasSubjectFactory"/>
+
+    <bean id="securityManager"
+          class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="shiroDbRealm"/>
+        <property name="subjectFactory" ref="casSubjectFactory"/>
+    </bean>
+    <!--有单点登录的配置：登录 CAS 服务端地址，参数 service 为服务端的返回地址 -->
+    <bean id="shiroDbRealm" class="org.ante.common.shiro.MyCasRealm">
+        <property name="defaultRoles" value="teacher"/>
+        <property name="casServerUrlPrefix" value="http://localhost:8080/cas/"/>
+        <property name="casService" value="http://localhost/shiro-cas"/>
+    </bean>
+
+    <!-- Shiro Filter -->
+    <bean id="shiroFilter"
+          class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/>
+        <!--有单点登录的配置：登录 CAS 服务端地址，参数 service 为服务端的返回地址 -->
+        <property name="loginUrl" value="http://localhost:8080/cas/login?service=http://localhost/shiro-cas"/>
+        <property name="successUrl" value="/welcome"/>
+        <property name="unauthorizedUrl" value="/error"/>
+        <!--添加casFilter到shiroFilter -->
+        <property name="filters">
+            <map>
+                <entry key="cas" value-ref="casFilter">
+                </entry>
+            </map>
+        </property>
+        <property name="filterChainDefinitions">
+            <value>
+                /shiro-cas= cas
+                /dwr/** =anon
+                /type/** = anon
+                /** = anon
+            </value>
+        </property>
+    </bean>
+</beans>

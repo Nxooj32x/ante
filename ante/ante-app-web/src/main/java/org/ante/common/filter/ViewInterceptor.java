@@ -40,7 +40,7 @@ public class ViewInterceptor implements HandlerInterceptor {
             boolean isPajx = Boolean.parseBoolean(httpServletRequest.getHeader("X-PJAX"));// 值为true表示pjax请求，这是重点
             if (!isPajx) {
                 httpServletRequest.setAttribute("view",modelAndView.getViewName());
-                modelAndView.setViewName("/view/main/template");
+                modelAndView.setViewName("/view/main/manager");
             }else{
                 Map config = (Map) httpServletRequest.getSession().getServletContext().getAttribute("runConfig");
                 httpServletResponse.setHeader("X-PJAX-Version", config.get("XPJAXVersion").toString());// 响应内容的pjax版本，有新模版发布时，通过配置文件修改版本来强制页面刷新
