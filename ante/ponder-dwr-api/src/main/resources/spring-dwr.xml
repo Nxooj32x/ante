@@ -5,12 +5,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.directwebremoting.org/schema/spring-dwr http://www.directwebremoting.org/schema/spring-dwr/spring-dwr-3.0.xsd">
 
     <!-- DWR配置 -->
-
-    <dwr:annotation-config/>
-
-    <dwr:annotation-scan scanRemoteProxy="true"
-                         scanDataTransferObject="true" base-package="org.ante.dwr.model"/>
-
     <bean
             class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
         <property name="order" value="1"/>
@@ -28,7 +22,7 @@
         <property value="true" name="alwaysUseFullPath"></property>
         <property name="mappings">
             <props>
-                <prop key="/dwr/**">dwrController</prop>
+                <prop key="/dwr/**/*">dwrController</prop>
             </props>
         </property>
     </bean>
@@ -49,4 +43,10 @@
         <dwr:config-param name="maxWaitAfterWrite" value="3000"/>
         <dwr:config-param name="logLevel" value="WARN"/>
     </dwr:controller>
+
+    <dwr:annotation-config/>
+
+    <dwr:annotation-scan scanRemoteProxy="true"
+                         scanDataTransferObject="true" base-package="org.ante.dwr"/>
+
 </beans>

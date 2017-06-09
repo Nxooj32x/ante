@@ -7,4 +7,21 @@
 <body>
 
 </body>
+<script type="text/javascript" src="${request.getContextPath()}/dwr/engine.js"></script>
+<script type="text/javascript" src="${request.getContextPath()}/dwr/util.js"></script>
+<script type="text/javascript" src="${request.getContextPath()}/dwr/interface/messagepush.js"></script>
+<script type="text/javascript" src="${request.getContextPath()}/dwr/interface/appjs.js"></script>
+
+<script>
+    //通过该方法与后台交互，确保推送时能找到指定用户
+    var userId = '${sessionUser.id}';
+    if(userId!=""){
+        dwr.engine.setActiveReverseAjax(true);dwr.engine.setNotifyServerOnPageUnload(true);
+        messagepush.onPageLoad(userId);
+        //推送信息
+        function showMessage(autoMessage){
+            alert(autoMessage);
+        }
+    }
+</script>
 </html>

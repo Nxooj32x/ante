@@ -190,4 +190,5 @@
             </props>
         </property>
     </bean>
+    <import resource="classpath*:spring-dwr.xml"/>
 </beans>

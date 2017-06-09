@@ -23,6 +23,11 @@
         </dependency>
         <dependency>
             <groupId>org.ante</groupId>
+            <artifactId>ponder-dwr-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ante</groupId>
             <artifactId>ponder-user-api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>

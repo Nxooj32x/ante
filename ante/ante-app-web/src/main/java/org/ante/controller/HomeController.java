@@ -3,6 +3,7 @@ package org.ante.controller;
 import org.ante.base.model.MessageBean;
 import org.ante.base.controller.BaseController;
 import org.ante.user.model.Role;
+import org.ante.user.model.User;
 import org.ante.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,6 +36,9 @@ public class HomeController extends BaseController {
     public String welcome(HttpServletRequest request, HttpServletResponse response){
 //        EmailBean mailBean = new EmailBean("136992347@qq.com","1154016697@qq.com","主题","内容");
 //        producerService.sendEmailMessage(adapterQueue,mailBean);
+        User user = new User();
+        user.setId(65535);
+        request.getSession().setAttribute("sessionUser",user);
         return "/index";
     }
 

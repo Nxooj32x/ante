@@ -2756,9 +2756,10 @@ header.navbar {
   border-bottom: 1px solid #cfd8dc; }
   header.navbar .navbar-brand {
     display: inline-block;
-    width: 155px;
+    width: 100px;
     height: 55px;
     padding: 0.5rem 1rem;
+    margin-left:100px;
     margin-right: 0;
     background-color: #fff;
     background-image: url("../img/logo.png");

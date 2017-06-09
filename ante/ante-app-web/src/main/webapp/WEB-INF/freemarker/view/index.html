@@ -14,4 +14,15 @@
 <body>
 
 </body>
+<script type="text/javascript" src="${request.getContextPath()}/dwr/engine.js"></script>
+<script type="text/javascript" src="${request.getContextPath()}/dwr/util.js"></script>
+<script type="text/javascript" src="${request.getContextPath()}/dwr/interface/tedoPush.js"></script>
+<script>
+
+    var id = 65535;
+    if(id!=""){
+        dwr.engine.setActiveReverseAjax(true);dwr.engine.setNotifyServerOnPageUnload(true);
+        tedoPush.sendMessageAuto(id,"www.yoodb.com");
+    }
+</script>
 </html>

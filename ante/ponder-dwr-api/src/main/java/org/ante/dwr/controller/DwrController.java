@@ -3,6 +3,7 @@ package org.ante.dwr.controller;
 import org.ante.dwr.model.DtoBean;
 import org.directwebremoting.annotations.RemoteMethod;
 import org.directwebremoting.annotations.RemoteProxy;
+import org.springframework.stereotype.Controller;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

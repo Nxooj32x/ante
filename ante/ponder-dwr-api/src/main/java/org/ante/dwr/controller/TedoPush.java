@@ -7,9 +7,9 @@ import org.directwebremoting.ScriptSession;
 import org.directwebremoting.ScriptSessionFilter;
 import org.directwebremoting.annotations.RemoteMethod;
 import org.directwebremoting.annotations.RemoteProxy;
+import org.springframework.stereotype.Controller;
 
 import java.util.Collection;
-
 @RemoteProxy(name="tedoPush")
 
 
