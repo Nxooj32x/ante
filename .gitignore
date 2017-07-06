@@ -1,7 +1,6 @@
-ante/ponder-dwr-api/target
-ante/ante-app-web/target
-ante/.idea/uiDesigner.xml
-ante/.idea/artifacts/ante_app_web_war_exploded.xml
 ante/ante-app-web/src/main/webapp/node_modules
 ante/ponderbase/target
-ante/ante.iml
+ante/*.iml
+ante/.idea/*
+ante/*/*.iml
+ante/*/target
