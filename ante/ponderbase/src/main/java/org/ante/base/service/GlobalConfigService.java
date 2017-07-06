@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.ServletContext;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Map;
 
 /**
@@ -20,7 +21,6 @@ public class GlobalConfigService {
     Environment environment;
 
     public void reloadGlobalConfig(ServletContext servletContext) throws IOException {
-
         String path = environment.getProperty(Constant.SystemParam.CONTEXT_PARAM_PROPERTIES);
         ResourcePropertySource propertySource = new ResourcePropertySource(path);
         String value = (String) propertySource.getProperty(Constant.SystemParam.LOAD_CONFIGS);

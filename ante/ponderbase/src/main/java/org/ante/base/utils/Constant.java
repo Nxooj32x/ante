@@ -5,9 +5,9 @@ package org.ante.base.utils;
  */
 public class Constant {
     public interface SystemParam{
-        public static String CONTEXT_PARAM_PROPERTIES = "properties";
-
         public static String LOAD_CONFIGS = "load_configs";
+
         public static String SPILT_CONFIGS = ",";
+        public static String CONTEXT_PARAM_PROPERTIES = "properties";
     }
 }

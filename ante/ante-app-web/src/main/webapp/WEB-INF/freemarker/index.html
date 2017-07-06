@@ -2,26 +2,98 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>${runConfig.abcd}</title>
 </head>
 <body>
 
 </body>
+<script type="text/javascript" src="${resRoot}/assets/js/libs/jquery.min.js"></script>
+<script type="text/javascript" src="${resRoot}/assets/js/libs/jquery-migrate-1.1.0.min.js"></script>
+
+<script type="text/javascript" src="${resRoot}/assets/js/persistencejs/persistence.js"></script>
+<script type="text/javascript" src="${resRoot}/assets/js/persistencejs/persistence.store.sql.js"></script>
+<script type="text/javascript" src="${resRoot}/assets/js/persistencejs/persistence.store.websql.js"></script>
+<script type="text/javascript" src="${resRoot}/assets/js/persistencejs/persistence.store.memory.js"></script>
+
+<script type="text/javascript" src="${resRoot}/assets/js/d3/d3.js"></script>
+
 <script type="text/javascript" src="${request.getContextPath()}/dwr/engine.js"></script>
 <script type="text/javascript" src="${request.getContextPath()}/dwr/util.js"></script>
 <script type="text/javascript" src="${request.getContextPath()}/dwr/interface/messagepush.js"></script>
 <script type="text/javascript" src="${request.getContextPath()}/dwr/interface/appjs.js"></script>
 
+
+<script type="text/javascript" src="${resRoot}/assets/js/seajs/sea.js"></script>
 <script>
+    seajs.config({
+        alias:{},
+        // 调试模式
+        debug: true,
+        base:"${resRoot}/js/module/",
+        // 文件编码
+        charset: 'utf-8'
+    });
+</script>
+<script type="text/javascript" src="${resRoot}/dist/js/main-f23b67c032.js"></script>
+<script>
+
     //通过该方法与后台交互，确保推送时能找到指定用户
-    var userId = '${sessionUser.id}';
-    if(userId!=""){
-        dwr.engine.setActiveReverseAjax(true);dwr.engine.setNotifyServerOnPageUnload(true);
-        messagepush.onPageLoad(userId);
-        //推送信息
-        function showMessage(autoMessage){
-            alert(autoMessage);
+//    var userId = '${sessionUser.id}';
+//    if(userId!=""){
+//        dwr.engine.setActiveReverseAjax(true);dwr.engine.setNotifyServerOnPageUnload(true);
+//        messagepush.onPageLoad(userId);
+//        //推送信息
+//        function showMessage(autoMessage){
+//            alert(autoMessage);
+//        }
+//    }
+    var role = {id:1,name:"wangtao",rolekey:"123456"};
+/*    $.ajax({
+        url:"${base}/resource/1",
+        headers:{
+            Accept:'application/json'
+        },
+        type:"POST",
+        data:JSON.stringify(role),
+        dataType: 'json',
+        contentType:'application/json',
+        processData:true,
+        success:function(res){
+            console.dir(res);
+        },
+        error:function(res){
+            console.dir(res);
         }
+    });*/
+
+    if (window.openDatabase) {
+        persistence.store.websql.config(persistence, 'testdb',
+                'My SQLite database', 5 * 1024 * 1024);
+    } else {
+        persistence.store.memory.config(persistence);
     }
+
+    var User = persistence.define('User', {
+        name: "TEXT",
+        age: "INTEGER"
+    });
+    persistence.schemaSync();
+
+    var Address = persistence.define('Address', {
+        detail: "TEXT",
+        zipcode: "TEXT"
+    });
+
+    User.hasMany("addresses", Address, "user");
+    persistence.schemaSync();
+    persistence.flush();
+
+//    var mark = new User({name: "Mark", age: 60});
+//    persistence.add(mark);
+//    persistence.flush();
+//
+//    var addr1 = new Address({detail:"addr1", zipcode:"code1",user:mark});
+//    persistence.add(addr1);
+//    persistence.flush();
 </script>
 </html>

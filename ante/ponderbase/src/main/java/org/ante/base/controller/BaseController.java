@@ -10,7 +10,14 @@
  */
 package org.ante.base.controller;
 
+import com.google.gson.Gson;
+import org.ante.base.exception.AppException;
+import org.ante.base.exception.DaoException;
+import org.ante.base.exception.ServiceException;
+import org.ante.base.exception.WebException;
+import org.ante.base.model.ErrorMsg;
 import org.ante.base.utils.StringUtil;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -20,6 +27,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.beans.PropertyEditorSupport;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.reflect.Type;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.text.ParseException;
@@ -89,26 +97,53 @@ public class BaseController {
         //如果是json格式的ajax请求
         if (request.getHeader("accept").indexOf("application/json") > -1
                 || (request.getHeader("X-Requested-With")!= null && request.getHeader("X-Requested-With").indexOf("XMLHttpRequest") > -1)) {
-            response.setStatus(500);
-            response.setContentType("application/json;charset=utf-8");
-            try {
-                PrintWriter writer = response.getWriter();
-                writer.write(e.getMessage());
-                writer.flush();
-            } catch (IOException e1) {
-                e1.printStackTrace();
+            Class<?> superclass = e.getClass().getSuperclass();
+            if(superclass == AppException.class){
+                AppException appException = (AppException)e;
+                ErrorMsg emsg = appException.getEmsg();
+                HttpStatus httpStatus = appException.getHttpStatus();
+                outActionError(response,emsg,httpStatus);
+            }else{
+                outActionError(response,new ErrorMsg("服务器错误:"+e.getLocalizedMessage()),HttpStatus.INTERNAL_SERVER_ERROR);
             }
             return null;
         }
         else{//如果是普通请求
             request.setAttribute("exceptionMessage", e.getMessage());
-
             // 根据不同的异常类型可以返回不同界面
             if(e instanceof SQLException)
                 return "testerror";
             else
                 return "error";
         }
+    }
+
+    private void outActionError(HttpServletResponse response, ErrorMsg errorMsg,HttpStatus status) {
+        Object obj = this.outActionReturn(response,errorMsg,status);
+        Gson gson = new Gson();
+        String reStr = gson.toJson(obj);
+        try {
+            PrintWriter writer = response.getWriter();
+            writer.write(reStr);
+            writer.flush();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+    }
+
+    public Object outActionReturn(HttpServletResponse response,Object obj,HttpStatus status){
+        return outActionReturn(response,obj,status.value());
+    }
+
+    public Object outActionReturn(HttpServletResponse response,Object obj,int status){
+        try {
+            HttpStatus.valueOf(status);
+        }catch (IllegalArgumentException ie){
+            status = HttpStatus.INTERNAL_SERVER_ERROR.value();
+        }
+        response.setStatus(status);
+        response.setContentType("application/json;charset=utf-8");
+        return obj;
     }
 
     /**

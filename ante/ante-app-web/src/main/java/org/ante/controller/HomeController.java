@@ -1,11 +1,13 @@
 package org.ante.controller;
 
+import org.ante.base.exception.WebException;
 import org.ante.base.model.MessageBean;
 import org.ante.base.controller.BaseController;
 import org.ante.user.model.Role;
 import org.ante.user.model.User;
 import org.ante.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,9 +35,10 @@ public class HomeController extends BaseController {
     private UserService userService;
 
     @RequestMapping(value = "/welcome",method = RequestMethod.GET)
-    public String welcome(HttpServletRequest request, HttpServletResponse response){
+    public String welcome(HttpServletRequest request, HttpServletResponse response)throws Exception{
 //        EmailBean mailBean = new EmailBean("136992347@qq.com","1154016697@qq.com","主题","内容");
 //        producerService.sendEmailMessage(adapterQueue,mailBean);
+
         User user = new User();
         user.setId(65535);
         request.getSession().setAttribute("sessionUser",user);
@@ -93,8 +96,12 @@ public class HomeController extends BaseController {
 
     @RequestMapping(value = "/resource/{id}",method = RequestMethod.POST,consumes="application/json",produces="application/json")
     @ResponseBody
-    public Object post(HttpServletRequest request, HttpServletResponse response, @PathVariable String id,@RequestBody Role role){
-        return new MessageBean(true,role);
+    public Object post(HttpServletRequest request, HttpServletResponse response, @PathVariable String id,@RequestBody Role role) throws Exception{
+        response.setStatus(HttpStatus.CREATED.value());
+        if(role.getId() == 1){
+            throw new WebException("此功能暂停使用！",HttpStatus.BAD_REQUEST);
+        }
+        return outActionReturn(response,role,HttpStatus.CREATED);
     }
 
 

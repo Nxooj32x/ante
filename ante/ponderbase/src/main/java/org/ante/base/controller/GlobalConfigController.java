@@ -29,7 +29,7 @@ public class GlobalConfigController {
         try {
             globalConfigService.reloadGlobalConfig(servletContext);
         } catch (IOException e) {
-            return new MessageBean(true, "fetch is error");
+            return new MessageBean(true, "fetch is error",e);
         }
         return new MessageBean(true, "fetch is success");
     }

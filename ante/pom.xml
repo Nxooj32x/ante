@@ -16,6 +16,7 @@
         <module>ponder-redis-api</module>
         <module>ponder-jms-api</module>
         <module>ponder-quartz-api</module>
+        <module>ponder-common-util</module>
     </modules>
     <packaging>pom</packaging>
 </project>
