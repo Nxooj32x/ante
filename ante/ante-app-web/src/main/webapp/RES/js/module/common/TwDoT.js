@@ -1,6 +1,6 @@
 ;(function(root,factory){
     if (typeof define === 'function' && (define.amd || define.cmd)) {
-        define('TwDoT',factory);
+        define(factory);
     } else if (typeof exports === 'object') {
         module.exports = factory();
     } else {
@@ -140,9 +140,3 @@
     var TwDoT = doT;
     return TwDoT;
 });
-define('begin',['TwDoT'],function(require,exports,module){
-    var dot = require('TwDoT');
-    console.dir(dot);
-});
-seajs.use('begin');
-
