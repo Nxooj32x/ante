@@ -2,7 +2,7 @@
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
 	else if(typeof define === 'function' && define.cmd)
-		define('soda',[], factory);
+		define([], factory);
 	else if(typeof exports === 'object')
 		exports["soda"] = factory();
 	else
@@ -1040,9 +1040,3 @@ _soda2["default"].directive('include', {
 /***/ })
 /******/ ]);
 });
-define('begin',['soda'],function(require,exports,module){
-    var soda = require('soda');
-    console.dir(soda);
-});
-seajs.use('begin');
-

@@ -1,0 +1,117 @@
+2017-09-06 14:27:51,821 INFO [org.hibernate.annotations.common.Version] - HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+2017-09-06 14:27:51,833 INFO [org.hibernate.Version] - HHH000412: Hibernate Core {4.3.1.Final}
+2017-09-06 14:27:51,837 INFO [org.hibernate.cfg.Environment] - HHH000206: hibernate.properties not found
+2017-09-06 14:27:51,839 INFO [org.hibernate.cfg.Environment] - HHH000021: Bytecode provider name : javassist
+2017-09-06 14:27:52,173 INFO [org.hibernate.dialect.Dialect] - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2017-09-06 14:27:52,564 INFO [org.hibernate.engine.transaction.internal.TransactionFactoryInitiator] - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2017-09-06 14:27:52,572 INFO [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory] - HHH000397: Using ASTQueryTranslatorFactory
+2017-09-06 14:27:52,685 INFO [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 4.3.1.Final
+2017-09-06 14:27:53,597 INFO [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000228: Running hbm2ddl schema update
+2017-09-06 14:27:53,597 INFO [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000102: Fetching database metadata
+2017-09-06 14:27:53,602 INFO [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000396: Updating schema
+2017-09-06 14:27:53,634 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: user.t_role
+2017-09-06 14:27:53,634 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [id, name, rolekey]
+2017-09-06 14:27:53,635 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2017-09-06 14:27:53,636 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2017-09-06 14:27:53,654 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: user.t_user
+2017-09-06 14:27:53,654 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [utime, phone, status, job, ctime, password, url, id, username, address, email, age, realname, qq]
+2017-09-06 14:27:53,655 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2017-09-06 14:27:53,655 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2017-09-06 14:27:53,671 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: user.t_userproperty
+2017-09-06 14:27:53,672 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [itemtype, content, id, utime, userid, ctime, propertytype]
+2017-09-06 14:27:53,672 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: [fk_ii6rplunn0e3gi2cbgfryv6th]
+2017-09-06 14:27:53,672 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary, fk_ii6rplunn0e3gi2cbgfryv6th]
+2017-09-06 14:27:53,684 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: user.t_userrole
+2017-09-06 14:27:53,684 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [id, roleid, status, userid]
+2017-09-06 14:27:53,684 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: [fk_aapu0wlrq88t42gcnd6d94h2n, fk_1pqklroghhqmfstvr90i5iqnv]
+2017-09-06 14:27:53,684 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [fk_aapu0wlrq88t42gcnd6d94h2n, primary]
+2017-09-06 14:27:53,685 INFO [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000232: Schema update complete
+2017-09-06 14:27:54,403 INFO [org.hibernate.dialect.Dialect] - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2017-09-06 14:27:54,415 INFO [org.hibernate.engine.transaction.internal.TransactionFactoryInitiator] - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2017-09-06 14:27:54,415 INFO [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory] - HHH000397: Using ASTQueryTranslatorFactory
+2017-09-06 14:27:54,431 INFO [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000228: Running hbm2ddl schema update
+2017-09-06 14:27:54,431 INFO [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000102: Fetching database metadata
+2017-09-06 14:27:54,432 INFO [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000396: Updating schema
+2017-09-06 14:27:54,447 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: ante.t_role
+2017-09-06 14:27:54,447 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [id, name, rolekey]
+2017-09-06 14:27:54,447 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2017-09-06 14:27:54,448 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2017-09-06 14:27:54,448 INFO [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000232: Schema update complete
+2017-09-06 15:33:01,057 INFO [org.hibernate.annotations.common.Version] - HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+2017-09-06 15:33:01,070 INFO [org.hibernate.Version] - HHH000412: Hibernate Core {4.3.1.Final}
+2017-09-06 15:33:01,075 INFO [org.hibernate.cfg.Environment] - HHH000206: hibernate.properties not found
+2017-09-06 15:33:01,077 INFO [org.hibernate.cfg.Environment] - HHH000021: Bytecode provider name : javassist
+2017-09-06 15:33:01,505 INFO [org.hibernate.dialect.Dialect] - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2017-09-06 15:33:02,108 INFO [org.hibernate.engine.transaction.internal.TransactionFactoryInitiator] - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2017-09-06 15:33:02,123 INFO [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory] - HHH000397: Using ASTQueryTranslatorFactory
+2017-09-06 15:33:02,218 INFO [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 4.3.1.Final
+2017-09-06 15:33:03,052 INFO [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000228: Running hbm2ddl schema update
+2017-09-06 15:33:03,052 INFO [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000102: Fetching database metadata
+2017-09-06 15:33:03,058 INFO [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000396: Updating schema
+2017-09-06 15:33:03,100 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: user.t_role
+2017-09-06 15:33:03,101 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [id, name, rolekey]
+2017-09-06 15:33:03,101 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2017-09-06 15:33:03,101 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2017-09-06 15:33:03,117 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: user.t_user
+2017-09-06 15:33:03,117 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [utime, phone, status, job, ctime, password, url, id, username, address, email, age, realname, qq]
+2017-09-06 15:33:03,117 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2017-09-06 15:33:03,117 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2017-09-06 15:33:03,131 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: user.t_userproperty
+2017-09-06 15:33:03,132 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [itemtype, content, id, utime, userid, ctime, propertytype]
+2017-09-06 15:33:03,132 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: [fk_ii6rplunn0e3gi2cbgfryv6th]
+2017-09-06 15:33:03,132 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary, fk_ii6rplunn0e3gi2cbgfryv6th]
+2017-09-06 15:33:03,145 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: user.t_userrole
+2017-09-06 15:33:03,145 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [id, roleid, status, userid]
+2017-09-06 15:33:03,145 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: [fk_aapu0wlrq88t42gcnd6d94h2n, fk_1pqklroghhqmfstvr90i5iqnv]
+2017-09-06 15:33:03,145 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [fk_aapu0wlrq88t42gcnd6d94h2n, primary]
+2017-09-06 15:33:03,146 INFO [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000232: Schema update complete
+2017-09-06 15:33:03,722 INFO [org.hibernate.dialect.Dialect] - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2017-09-06 15:33:03,733 INFO [org.hibernate.engine.transaction.internal.TransactionFactoryInitiator] - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2017-09-06 15:33:03,733 INFO [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory] - HHH000397: Using ASTQueryTranslatorFactory
+2017-09-06 15:33:03,748 INFO [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000228: Running hbm2ddl schema update
+2017-09-06 15:33:03,748 INFO [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000102: Fetching database metadata
+2017-09-06 15:33:03,750 INFO [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000396: Updating schema
+2017-09-06 15:33:03,763 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: ante.t_role
+2017-09-06 15:33:03,763 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [id, name, rolekey]
+2017-09-06 15:33:03,763 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2017-09-06 15:33:03,763 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2017-09-06 15:33:03,764 INFO [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000232: Schema update complete
+2017-09-06 15:39:23,708 INFO [org.hibernate.annotations.common.Version] - HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+2017-09-06 15:39:23,722 INFO [org.hibernate.Version] - HHH000412: Hibernate Core {4.3.1.Final}
+2017-09-06 15:39:23,725 INFO [org.hibernate.cfg.Environment] - HHH000206: hibernate.properties not found
+2017-09-06 15:39:23,727 INFO [org.hibernate.cfg.Environment] - HHH000021: Bytecode provider name : javassist
+2017-09-06 15:39:24,090 INFO [org.hibernate.dialect.Dialect] - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2017-09-06 15:39:24,443 INFO [org.hibernate.engine.transaction.internal.TransactionFactoryInitiator] - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2017-09-06 15:39:24,450 INFO [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory] - HHH000397: Using ASTQueryTranslatorFactory
+2017-09-06 15:39:24,533 INFO [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 4.3.1.Final
+2017-09-06 15:39:25,240 INFO [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000228: Running hbm2ddl schema update
+2017-09-06 15:39:25,240 INFO [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000102: Fetching database metadata
+2017-09-06 15:39:25,246 INFO [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000396: Updating schema
+2017-09-06 15:39:25,293 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: user.t_role
+2017-09-06 15:39:25,293 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [id, name, rolekey]
+2017-09-06 15:39:25,293 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2017-09-06 15:39:25,293 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2017-09-06 15:39:25,306 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: user.t_user
+2017-09-06 15:39:25,306 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [utime, phone, status, job, ctime, password, url, id, username, address, email, age, realname, qq]
+2017-09-06 15:39:25,307 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2017-09-06 15:39:25,307 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2017-09-06 15:39:25,319 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: user.t_userproperty
+2017-09-06 15:39:25,319 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [itemtype, content, id, utime, userid, ctime, propertytype]
+2017-09-06 15:39:25,319 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: [fk_ii6rplunn0e3gi2cbgfryv6th]
+2017-09-06 15:39:25,319 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary, fk_ii6rplunn0e3gi2cbgfryv6th]
+2017-09-06 15:39:25,335 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: user.t_userrole
+2017-09-06 15:39:25,335 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [id, roleid, status, userid]
+2017-09-06 15:39:25,335 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: [fk_aapu0wlrq88t42gcnd6d94h2n, fk_1pqklroghhqmfstvr90i5iqnv]
+2017-09-06 15:39:25,335 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [fk_aapu0wlrq88t42gcnd6d94h2n, primary]
+2017-09-06 15:39:25,339 INFO [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000232: Schema update complete
+2017-09-06 15:39:26,164 INFO [org.hibernate.dialect.Dialect] - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2017-09-06 15:39:26,174 INFO [org.hibernate.engine.transaction.internal.TransactionFactoryInitiator] - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2017-09-06 15:39:26,174 INFO [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory] - HHH000397: Using ASTQueryTranslatorFactory
+2017-09-06 15:39:26,188 INFO [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000228: Running hbm2ddl schema update
+2017-09-06 15:39:26,188 INFO [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000102: Fetching database metadata
+2017-09-06 15:39:26,190 INFO [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000396: Updating schema
+2017-09-06 15:39:26,199 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000261: Table found: ante.t_role
+2017-09-06 15:39:26,199 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000037: Columns: [id, name, rolekey]
+2017-09-06 15:39:26,199 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000108: Foreign keys: []
+2017-09-06 15:39:26,199 INFO [org.hibernate.tool.hbm2ddl.TableMetadata] - HHH000126: Indexes: [primary]
+2017-09-06 15:39:26,199 INFO [org.hibernate.tool.hbm2ddl.SchemaUpdate] - HHH000232: Schema update complete

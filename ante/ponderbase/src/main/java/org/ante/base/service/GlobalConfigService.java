@@ -1,6 +1,8 @@
 package org.ante.base.service;
 
 import org.ante.base.utils.Constant;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.support.ResourcePropertySource;
@@ -16,6 +18,7 @@ import java.util.Map;
  */
 @Service
 public class GlobalConfigService {
+    private static Logger log = LoggerFactory.getLogger(GlobalConfigService.class);
 
     @Autowired
     Environment environment;
@@ -30,6 +33,7 @@ public class GlobalConfigService {
             for (String p : paths) {
                 ResourcePropertySource resourcePropertySource = new ResourcePropertySource("classpath:properties/" + p + "/me.properties");
                 Map<String, Object> source = resourcePropertySource.getSource();
+                log.info("init system config "+p+" {}",source);
                 servletContext.removeAttribute(p);
                 servletContext.setAttribute(p, source);
             }

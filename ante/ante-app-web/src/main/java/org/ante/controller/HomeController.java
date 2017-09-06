@@ -6,6 +6,8 @@ import org.ante.base.controller.BaseController;
 import org.ante.user.model.Role;
 import org.ante.user.model.User;
 import org.ante.user.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -19,6 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Controller
 public class HomeController extends BaseController {
+    private static Logger log = LoggerFactory.getLogger(HomeController.class);
 
 
 //    @Autowired
@@ -38,7 +41,6 @@ public class HomeController extends BaseController {
     public String welcome(HttpServletRequest request, HttpServletResponse response)throws Exception{
 //        EmailBean mailBean = new EmailBean("136992347@qq.com","1154016697@qq.com","主题","内容");
 //        producerService.sendEmailMessage(adapterQueue,mailBean);
-
         User user = new User();
         user.setId(65535);
         request.getSession().setAttribute("sessionUser",user);

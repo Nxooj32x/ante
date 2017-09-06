@@ -64,7 +64,7 @@
                         <jettyXml>
                             src/main/etc/jetty.xml,src/main/etc/jetty-jmx.xml,src/main/etc/jetty-http.xml,src/main/etc/jetty-https.xml
                         </jettyXml>
-                        <reload>manual</reload>
+<!--                        <reload>manual</reload>
                         <dumpOnStart>true</dumpOnStart>
                         <requestLog implementation="org.eclipse.jetty.server.NCSARequestLog">
                             <filename>target/access-yyyy_mm_dd.log</filename>
@@ -75,7 +75,7 @@
                             <logServer>true</logServer>
                             <retainDays>120</retainDays>
                             <logCookies>true</logCookies>
-                        </requestLog>
+                        </requestLog>-->
                     </configuration>
                 </plugin>
                 <plugin>

@@ -1,4 +1,4 @@
-ante/ante-app-web/src/main/webapp/node_modules
+ante/ante-app-web/src/main/node_modules
 ante/ponderbase/target
 ante/*.iml
 ante/.idea/*

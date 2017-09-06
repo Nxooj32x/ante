@@ -1,11 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <title>${runConfig.abcd}</title>
-</head>
-<body>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>首页</title>
 
+    <!-- Bootstrap -->
+    <link href="//cdn.bootcss.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
 </body>
 <script type="text/javascript" src="${resRoot}/assets/js/libs/jquery.min.js"></script>
 <script type="text/javascript" src="${resRoot}/assets/js/libs/jquery-migrate-1.1.0.min.js"></script>
@@ -16,6 +28,7 @@
 <script type="text/javascript" src="${resRoot}/assets/js/persistencejs/persistence.store.memory.js"></script>
 
 <script type="text/javascript" src="${resRoot}/assets/js/d3/d3.js"></script>
+<script type="text/javascript" src="${resRoot}/assets/js/libs/imagesloaded.pkgd.min.js"></script>
 
 <script type="text/javascript" src="${request.getContextPath()}/dwr/engine.js"></script>
 <script type="text/javascript" src="${request.getContextPath()}/dwr/util.js"></script>
@@ -34,9 +47,8 @@
         charset: 'utf-8'
     });
 </script>
-<script type="text/javascript" src="${resRoot}/dist/js/main-0a2701cd8a.js"></script>
+<script type="text/javascript" src="${resRoot}/js/module/main.js"></script>
 <script>
-
     //通过该方法与后台交互，确保推送时能找到指定用户
 //    var userId = '${sessionUser.id}';
 //    if(userId!=""){
